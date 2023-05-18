@@ -1318,10 +1318,8 @@ For example:
 ----
 config:
   server.directories.plugins: "/var/lib/neo4j/labs"
-  dbms.security.procedures.unrestricted: "apoc.*"
   dbms.security.procedures.unrestricted: "apoc.cypher.doIt"
   server.config.strict_validation.enabled: "false"
-  dbms.security.procedures.allowlist: "gds.*,apoc.*"
   dbms.security.procedures.allowlist: "apoc.math.maxInteger,apoc.cypher.doIt"
 ----
 +

@@ -229,6 +229,7 @@ In 4.2, signature changed to `db.listLocks() :: (mode :: STRING?, resourceType :
 
 // New in 4.2
 // com.neo4j.causaulclustering.discovery.procedures.ReadReplicaToggleProcedure
+//deprecate in 5.6
 | xref:reference/procedures.adoc#procedure_dbms_cluster_readreplicatoggle[`dbms.cluster.readReplicaToggle()`]
 | label:no[]
 | label:yes[]
@@ -1088,7 +1089,10 @@ m|READ
 |===
 | Description
 a|
-Visualize the schema of the data.
+Visualizes the schema of the data based on available statistics. A new node is returned for each label.
+The properties represented on the node include `name` (label name), `indexes` (list of indexes), and `constraints` (list of constraints).
+A relationship of a given type is returned for all possible combinations of start and end nodes.
+Note that this may include additional relationships that do not exist in the data due to the information available in the count store.
 | Signature
 m|db.schema.visualization() :: (nodes :: LIST? OF NODE?, relationships :: LIST? OF RELATIONSHIP?)
 | Mode
@@ -1288,6 +1292,7 @@ m|READ
 // m|reader, editor, publisher, architect, admin
 |===
 
+//deprecate in 5.6
 [[procedure_dbms_cluster_readreplicatoggle]]
 .dbms.cluster.readReplicaToggle() label:enterprise-edition[] label:admin-only[] label:deprecated[]
 [cols="<15s,<85"]
